@@ -10,6 +10,6 @@ for src in find("*.c"):
     all_rules.append(rules.declare(name=name, src=src, out=f"../build/{name}.out"))
 
 callback(
-    name="all",
+    name="all_examples",
     deps=all_rules,
 )
