@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 setup(
     name="buildtool",
-    version="0.1.*",
+    version="0.2.*",
     author="Rahul Arya",
     author_email="rahularya@berkeley.edu",
     long_description=readme,
@@ -33,5 +33,6 @@ setup(
         "tqdm",
         "google-cloud-storage",
         "packaging",
+        "syrupy",
     ],
 )
