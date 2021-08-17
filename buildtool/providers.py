@@ -107,8 +107,6 @@ class IterableDepSet(DepSet):
     def __add__(self, other: Union[DepSet, List[str]]):
         if isinstance(other, DepSet):
             return IterableDepSet(self, other)
-        elif isinstance(other, list):
-            return IterableDepSet(self, *other)
         return NotImplemented
 
     def __bool__(self):

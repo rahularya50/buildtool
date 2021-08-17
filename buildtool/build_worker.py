@@ -94,6 +94,12 @@ def worker(build_state: BuildState, index: int):
 
             if deps_ready:
                 done = False
+                # we need to clear any output folders to prevent cache corruption
+                # imagine the output folder X/ has a file A, and we generate just X/B, but then cache X/A *and* X/B
+                for out in todo.outputs:
+                    if out.endswith("/") and Path(out).exists():
+                        rmtree(out)
+
                 # check if we're already cached!
                 if cache_key and not todo.do_not_cache:
                     try:

@@ -55,9 +55,12 @@ class Context(ABC):
             )
 
     def absolute(self, path: str):
+        path = str(path) # cast contextual paths back to strings
         return normalize_path(self.cwd, path)
 
     def relative(self, path: str):
+        if isinstance(path, ContextualRelativePath):
+            return path
         return ContextualRelativePath(self.absolute(path), self)
 
     def _resolve(self, dep: str):
@@ -76,9 +79,9 @@ class Context(ABC):
     def add_dep(self, dep: str, *, load_provided=False, defer=False):
         raise NotImplementedError
 
-    def add_deps(self, deps: Sequence[str]):
+    def add_deps(self, deps: Sequence[str], *, load_provided=False, defer=False):
         for dep in deps:
-            self.add_dep(dep)
+            self.add_dep(dep, load_provided=load_provided, defer=defer)
 
     def input(self, sh: Optional[str], *, env: Env = None):
         raise NotImplementedError
