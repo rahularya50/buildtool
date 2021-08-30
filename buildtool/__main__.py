@@ -152,12 +152,9 @@ def cli(
         flags = {flag[0].lower(): loads(flag[1]) for flag in flags}
 
         if not skip_setup:
-            setup_rule_lookup, macros = load_rules(
+            setup_rule_lookup, _ = load_rules(
                 flags, workspace=True, skip_version_check=skip_version_check
             )
-
-            if macros:
-                raise BuildException("Macros are not supported in setup rules.")
 
             setup_targets = [
                 target[5:] for target in targets if target.startswith("setup:")
