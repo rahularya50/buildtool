@@ -286,6 +286,7 @@ def load_rules(
     )
     target_rule_lookup = TargetLookup()
     macros = {}
+    LOAD_FRAME_CACHE.clear()
     callback, find, resolve, macro, make_depset = make_callback(
         None,
         set(src_files),
