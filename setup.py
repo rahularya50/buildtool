@@ -33,6 +33,7 @@ setup(
         "tqdm",
         "google-cloud-storage",
         "packaging",
+        "pyyaml",
         "syrupy",
     ],
 )
