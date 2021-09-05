@@ -55,7 +55,7 @@ class Context(ABC):
             )
 
     def absolute(self, path: str):
-        path = str(path) # cast contextual paths back to strings
+        path = str(path)  # cast contextual paths back to strings
         return normalize_path(self.cwd, path)
 
     def relative(self, path: str):
