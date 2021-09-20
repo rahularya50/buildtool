@@ -130,6 +130,7 @@ class MemorizeContext(Context):
             raise BuildException("Setup rules cannot defer dependencies")
 
         if defer:
+            self.hashstate.record("add_deferred_dep", dep)
             self.deferred_inputs.append(dep)
         else:
             self.hashstate.record("add_dep", dep)
