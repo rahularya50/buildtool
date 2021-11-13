@@ -9,6 +9,7 @@ setup(
     version="0.2.*",
     author="Rahul Arya",
     author_email="rahularya@berkeley.edu",
+    url='https://github.com/Cal-CS-61A-Staff/cs61a-apps/tree/master/buildtool',
     long_description=readme,
     long_description_content_type="text/markdown",
     licence="MIT",
