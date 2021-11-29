@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections import Collection
+from collections.abc import Collection
 from typing import Optional
 
 from state import BuildState, Rule
