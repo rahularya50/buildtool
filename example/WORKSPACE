@@ -15,6 +15,6 @@ def declare_gcc_symlink():
 callback(name="init", deps=[declare_gcc_symlink()])
 
 config.register_default_setup_rule(":init")
-config.register_default_build_rule(":all")
+config.register_default_build_rule(":all_examples")
 config.register_output_directory("build")
 config.require_buildtool_version("0.1.25")
